@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+/* --- CSS Variables for Easy Theming --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #2c3e50, #4ca1af);
+    --font-family: 'Poppins', sans-serif;
+    --text-light: #f8f9fa;
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+    
+    /* Button Colors from your code */
+    --green: #63aac0;
+    --red: #d95980;
+    --yellow: #f99b45;
+    --purple: #819ff9;
+
+    /* Glow Colors for animations */
+    --glow-white: rgba(255, 255, 255, 0.8);
+    --glow-green: rgba(38, 222, 129, 0.9);
+}
+
+/* --- Base & Layout Styles --- */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: var(--font-family);
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 8px var(--shadow-dark);
+}
+
+.status-text {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    font-weight: 400;
+    min-height: 2.2rem; /* Reserve space to prevent layout shift */
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* --- Enhanced Button Design --- */
+.btn {
+    height: 180px;
+    width: 180px;
+    border-radius: 20%;
+    border: 10px solid black;
+    /* Subtle highlight for 3D effect */
+    border-top-color: #333;
+    border-left-color: #333;
+    cursor: pointer;
+    box-shadow: 0 10px 20px var(--shadow-dark), inset 0 3px 5px rgba(0,0,0,0.4);
+    transition: all 0.15s ease-out;
+}
+
+.btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.4), inset 0 3px 5px rgba(0,0,0,0.4);
+}
+
+.btn:active {
+    transform: scale(0.97) translateY(2px);
+    box-shadow: 0 4px 8px var(--shadow-dark), inset 0 4px 8px rgba(0,0,0,0.5);
+}
+
+/* --- Button Color Definitions --- */
+.green { background-color: var(--green); }
+.red { background-color: var(--red); }
+.yellow { background-color: var(--yellow); }
+.purple { background-color: var(--purple); }
+
+/* --- Flash Effects for Gameplay --- */
+.flash {
+    animation: glow-white 0.4s ease-in-out;
+}
+
+.userflash {
+    animation: glow-green 0.4s ease-in-out;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes glow-white {
+    50% { box-shadow: 0 0 35px var(--glow-white); }
+}
+
+@keyframes glow-green {
+    50% { box-shadow: 0 0 35px var(--glow-green); }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+    h1 { font-size: 2.5rem; }
+    .status-text { font-size: 1.2rem; }
+    
+    .btn {
+        height: 140px;
+        width: 140px;
+    }
+}
+
+@media (max-width: 420px) {
+    .btn {
+        height: 110px;
+        width: 110px;
+        border-width: 8px;
+    }
+    .game-container, .btn-row {
+        gap: 15px;
+    }
+}
+
+.btn{
+	height:200px;
+	width:200px;
+	border-radius:20%;
+	border:10px solid black;
+	margin:2.5rem;
+}
+
+.btn-container{
+	display:flex;
+	justify-content:center;
+}
